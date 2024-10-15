@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Form Validation</h1>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <div>
+            <label for="username">Username (min 5 characters):</label><br>
+            <input type="text" id="username" name="username"><br>
+            <span class="error" id="usernameError"></span>
+        </div>
+        <div>
+            <label for="password">Password (min 8 characters):</label><br>
+            <input type="password" id="password" name="password"><br>
+            <span class="error" id="passwordError"></span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Clear error messages
+            document.getElementById('usernameError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+
+            // Username validation
+            const username = document.getElementById('username').value;
+            if (username.length < 5) {
+                document.getElementById('usernameError').innerText = 'Username must be at least 5 characters long';
+                isValid = false;
+            }
+
+            // Password validation
+            const password = document.getElementById('password').value;
+            if (password.length < 8) {
+                document.getElementById('passwordError').innerText = 'Password must be at least 8 characters long';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>

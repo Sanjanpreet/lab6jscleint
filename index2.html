@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #info {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Last Key Pressed</h1>
+    <div id="info">
+        <p>Press any key to see the key code and value.</p>
+        <p><strong>Key Code:</strong> <span id="keyCode">N/A</span></p>
+        <p><strong>Key Value:</strong> <span id="keyValue">N/A</span></p>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            document.getElementById('keyCode').innerText = event.keyCode;
+            document.getElementById('keyValue').innerText = event.key;
+        });
+    </script>
+
+</body>
+</html>
+
